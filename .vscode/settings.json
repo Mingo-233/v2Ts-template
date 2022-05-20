@@ -1,0 +1,22 @@
+{
+  "editor.tabSize": 2,
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "editor.formatOnType": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "eslintIntegration": true
+    }
+  },
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true
+}
