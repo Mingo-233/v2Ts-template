@@ -1,10 +1,11 @@
+const isProduction = process.env.NODE_ENV === "production";
 module.exports = {
   root: true,
   env: {
     node: true,
   },
   extends: [
-    "plugin:vue/essential",
+    "plugin:vue/recommended",
     "eslint:recommended",
     "@vue/typescript/recommended",
     "plugin:prettier/recommended",
@@ -13,7 +14,9 @@ module.exports = {
     ecmaVersion: 2020,
   },
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-console": isProduction ? 2 : 1,
+    "no-debugger": isProduction ? 2 : 1,
+    // "ban-ts-ignore": true,
+    // "@typescript-eslint/ban-ts-comment": "off",
   },
 };
