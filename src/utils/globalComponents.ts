@@ -8,7 +8,7 @@ import { VueConstructor } from "vue/types/vue";
 interface componentsModulesT {
   [propName: string]: object;
 }
-const modulesFiles = require.context("../components/common/", false, /\.vue$/);
+const modulesFiles = require.context("../components/global/", false, /\.vue$/);
 const componentsModules: componentsModulesT = {};
 modulesFiles.keys().forEach((path) => {
   if (!path.includes("index")) {

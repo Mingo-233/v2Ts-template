@@ -54,6 +54,8 @@ less
 
 #### 变量
 
+提高代码维护性 ——一键替换、主题换肤（not 减小打包体积）
+
 解决变量导入问题
 "style-resources-loader"
 解决变量打包问题
@@ -62,3 +64,52 @@ less
 #### 样式原子化
 
 --
+
+### 三、vuex
+
+模块化 module
+
+- 模块动态引入： 在 src/store/modules 目录下的 ts 文件都将自动导入成为子模块
+
+### 四、全局公共组件注册
+
+src/utils/globalComponents
+
+- 按需引入第三方库组件
+- 自定义组件动态引入：在 src/components/global 目录下的 vue 文件都将自动注册
+
+### 五、axios 以及 ts
+
+#### 接口申明
+
+/src/service/api 下定义同类型接口文件夹
+index.ts 维护接口信息
+type.ts 维护接口类型，参数类型
+
+#### vue 实例属性挂载，ts 申明
+
+vue.d.ts 中
+declare module "vue/types/vue" 添加 ts 申明
+
+```
+declare module "vue/types/vue" {
+  interface Vue {
+    $api: typeof ApiContainer;
+  }
+}
+
+```
+
+### 六、webpack 打包
+
+- proxy 代理
+- publicPath 静态资源引用路径 待定（根据项目部署路径决定）
+
+editor mobile 项目有效继承：
+LimitChunkCountPlugin
+
+### 待完成
+
+- [ ] CI 持续集成-gitlab 自动打包部署
+- [ ] husky gitcommit 校验
+- [ ] webpack 配置优化（webpack-bundle-analyzer、构建优化——体积、速度）
