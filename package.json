@@ -8,7 +8,7 @@
     "build-dev": "vue-cli-service build --mode development",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "fix": "npx eslint --fix"
+    "fix": "eslint . --fix"
   },
   "dependencies": {
     "ant-design-vue": "1.7.8",

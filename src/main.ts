@@ -3,13 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import { ApiContainer } from "@/service/api/index";
+import globalComponents from "@/utils/globalComponents";
 
-// import Antd from "ant-design-vue";
-// import "ant-design-vue/dist/antd.css";
-// Vue.use(Antd);
-
-import { Button } from "ant-design-vue";
-Vue.use(Button);
+Vue.use(globalComponents);
 Vue.config.productionTip = false;
 const app = new Vue({
   router,

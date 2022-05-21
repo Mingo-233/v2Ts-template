@@ -3,6 +3,7 @@
     <h1>demo page</h1>
     <a-button type="primary" @click="check"> 获取个人信息 </a-button>
     <a-button type="primary" @click="login"> 登陆 </a-button>
+    <ee></ee>
   </div>
 </template>
 
