@@ -111,5 +111,5 @@ LimitChunkCountPlugin
 ### 待完成
 
 - [ ] CI 持续集成-gitlab 自动打包部署
-- [ ] husky gitcommit 校验
+- [x] husky gitcommit 校验
 - [ ] webpack 配置优化（webpack-bundle-analyzer、构建优化——体积、速度）
