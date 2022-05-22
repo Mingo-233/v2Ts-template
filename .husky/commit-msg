@@ -1,0 +1,49 @@
+#!/usr/bin/env sh
+# . "$(dirname -- "$0")/_/husky.sh"
+
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+MSG=`awk '{printf("%s",$0)}' $1`
+
+if [ ${#MSG} -lt 8 ]
+  then
+    echo "-------------------------------------------------------------------"
+    echo "当前提交的 commit message 为: $MSG"
+    echo "commit message 只有${#MSG}字符"
+    echo "message的长度不能小于8, 本次提交失败，请完善commit message，再提交"
+    echo "-------------------------------------------------------------------"
+    exit 1
+fi
+
+if [[ $MSG =~ ^feat:[[:blank:]].* ]] ||
+   [[ $MSG =~ ^feat\(.*\):[[:blank:]].* ]] ||
+   [[ $MSG =~ ^fix:[[:blank:]].* ]] ||
+   [[ $MSG =~ ^fix\(.*\):[[:blank:]].* ]] ||
+   [[ $MSG =~ ^docs:[[:blank:]].* ]] ||
+   [[ $MSG =~ ^docs\(.*\):[[:blank:]].* ]] ||
+   [[ $MSG =~ ^style:[[:blank:]].* ]] ||
+   [[ $MSG =~ ^style\(.*\):[[:blank:]].* ]] ||
+   [[ $MSG =~ ^refactor:[[:blank:]].* ]] ||
+   [[ $MSG =~ ^refactor\(.*\):[[:blank:]].* ]] ||
+   [[ $MSG =~ ^test:[[:blank:]].* ]] ||
+   [[ $MSG =~ ^test\(.*\):[[:blank:]].* ]] ||
+   [[ $MSG =~ ^deploy:[[:blank:]].* ]] ||
+   [[ $MSG =~ ^deploy\(.*\):[[:blank:]].* ]] ||
+   [[ $MSG =~ ^revert:[[:blank:]].* ]] ||
+   [[ $MSG =~ ^revert\(.*\):[[:blank:]].* ]]
+  then
+    exit 0
+  else
+    echo "-------------------------------------------------------------------"
+    echo "当前提交的 commit message 为: $MSG"
+    echo "建议git提交规范例子"
+    echo "feat: xxxx, feat(order): xxx，或其他 fix,docs,style,refactor,test,deploy,revert"
+    echo "本次提交失败，请访问以下链接参考commit message 提交规范"
+    echo "https://gitlab.baoxiaohe.com/baoxiaohe/git"
+    echo "-------------------------------------------------------------------"
+    exit 1
+fi
+
+
+

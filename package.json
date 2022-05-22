@@ -8,7 +8,8 @@
     "build-dev": "vue-cli-service build --mode development",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "fix": "eslint . --fix"
+    "fix": "eslint . --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "ant-design-vue": "1.7.8",
@@ -35,6 +36,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
+    "husky": "6.0.0",
     "less": "^4.0.0",
     "less-loader": "^8.0.0",
     "prettier": "^2.4.1",

@@ -43,7 +43,7 @@ Prettier 将会作为 Linters 中 Formatting Rules 的完全替代品参与到�
 使用 eslint-config-prettier 禁用掉 ESLint 中与 Prettier 冲突的规则，使用可以被继承的 eslint 规则
 使用 eslint-plugin-prettier 添加 ESLint 的 Prettier 功能的实现
 
-#### extends
+#### .eslintrc.js extends
 
 批量设置规则集
 先后顺序存在覆盖关系
