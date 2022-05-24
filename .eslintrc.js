@@ -16,6 +16,7 @@ module.exports = {
   rules: {
     "no-console": isProduction ? 2 : 1,
     "no-debugger": isProduction ? 2 : 1,
+    "vue/multi-word-component-names": 0,
     // "ban-ts-ignore": true,
     // "@typescript-eslint/ban-ts-comment": "off",
   },

@@ -29,6 +29,8 @@ if [[ $MSG =~ ^feat:[[:blank:]].* ]] ||
    [[ $MSG =~ ^deploy\(.*\):[[:blank:]].* ]] ||
    [[ $MSG =~ ^revert:[[:blank:]].* ]] ||
    [[ $MSG =~ ^revert\(.*\):[[:blank:]].* ]]
+   [[ $MSG =~ ^chore:[[:blank:]].* ]] ||
+   [[ $MSG =~ ^chore\(.*\):[[:blank:]].* ]]
   then
     exit 0
   else
