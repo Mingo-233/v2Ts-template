@@ -113,3 +113,5 @@ LimitChunkCountPlugin
 - [ ] CI 持续集成-gitlab 自动打包部署
 - [x] husky gitcommit 校验
 - [ ] webpack 配置优化（webpack-bundle-analyzer、构建优化——体积、速度）
+- [ ] 七牛图片 懒加载
+- [ ] qiyu 客服

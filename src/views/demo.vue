@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import { getLang } from "@/utils/common";
+
 export default {
   name: "DemoA",
   data() {
@@ -15,7 +17,9 @@ export default {
       msg: "",
     };
   },
-  // mounted() {},
+  mounted() {
+    getLang();
+  },
   methods: {
     async check() {
       const res = await this.$api.check();

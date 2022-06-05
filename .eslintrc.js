@@ -14,7 +14,7 @@ module.exports = {
     ecmaVersion: 2020,
   },
   rules: {
-    "no-console": isProduction ? 2 : 1,
+    "no-console": isProduction ? 1 : 1,
     "no-debugger": isProduction ? 2 : 1,
     "vue/multi-word-component-names": 0,
     // "ban-ts-ignore": true,
