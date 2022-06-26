@@ -30,6 +30,9 @@ export default Vue.extend({
 
   methods: {
     axios() {
+      console.log("zhushi");
+
+      // 这是一条注释 我会删除它
       // this.$api.getAaPage({ name: "aa" });
       // console.log(this.$api);
       // this.$api.login({ name: "aa" });

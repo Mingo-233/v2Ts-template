@@ -81,8 +81,12 @@ module.exports = defineConfig({
       );
       config.plugins.push(
         new TerserPlugin({
-          extractComments: false, //不将注释提取到单独的文件中
+          extractComments: false, //是否将注释剥离到单独的文件中
           terserOptions: {
+            format: {
+              comments: false,
+              // （默认"some"）——默认情况下，它保留包含“@license”、“@copyright”、“@preserve”的 JSDoc 样式的注释，或者以!、传递true 或"all"保留所有注释，false在输出中省略注释，正则表达式字符串（例如/^!/）或函数。
+            },
             // 自动删除console
             compress: {
               // warnings: false, // 若打包错误，则注释这行
