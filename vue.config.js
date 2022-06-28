@@ -3,6 +3,7 @@ const isProduction = process.env.NODE_ENV === "production";
 const path = require("path");
 const webpack = require("webpack");
 const TerserPlugin = require("terser-webpack-plugin");
+console.log(process.env.npm_config_report);
 module.exports = defineConfig({
   // 是否对所有的依赖都进行babel转译
   transpileDependencies: false,
@@ -47,7 +48,7 @@ module.exports = defineConfig({
   chainWebpack: (config) => {
     config.optimization.splitChunks({
       chunks: "all", // async异步代码分割 initial同步代码分割 all同步异步分割都开启
-      minSize: 0, // 字节b 引入的文件大于30kb才进行分割
+      minSize: 10, // 字节b 引入的文件大于30kb才进行分割
       // minSize: 30000, // 字节b 引入的文件大于30kb才进行分割
       // maxSize: 50000,         //50kb，尝试将大于50kb的文件拆分成n个50kb的文件
       minChunks: 2, // 模块至少使用次数
@@ -61,7 +62,8 @@ module.exports = defineConfig({
           // 自定义打包模块
           test: /[\\/]node_modules[\\/]/,
           priority: -10, // 优先级，先打包到哪个组里面，值越大，优先级越高
-          filename: "[name]v.js",
+          // filename: "[name]v.js",
+          filename: `app-chunk-vendors`,
         },
         default: {
           // 默认打包模块
@@ -73,6 +75,8 @@ module.exports = defineConfig({
     });
   },
   configureWebpack: (config) => {
+    config.output.filename = "js/[name].[chunkhash:6].js";
+    config.output.chunkFilename = "js/chunk-[name].[chunkhash:4].js";
     if (isProduction) {
       config.plugins.push(
         new webpack.optimize.LimitChunkCountPlugin({
