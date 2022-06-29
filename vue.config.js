@@ -3,7 +3,10 @@ const isProduction = process.env.NODE_ENV === "production";
 const path = require("path");
 const webpack = require("webpack");
 const TerserPlugin = require("terser-webpack-plugin");
-console.log(process.env.npm_config_report);
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const isAnalyze = process.env.BUILD_TYPE === "analyze";
+
 module.exports = defineConfig({
   // 是否对所有的依赖都进行babel转译
   transpileDependencies: false,
@@ -102,6 +105,9 @@ module.exports = defineConfig({
           parallel: true,
         })
       );
+    }
+    if (isAnalyze) {
+      config.plugins.push(new BundleAnalyzerPlugin());
     }
   },
 });
